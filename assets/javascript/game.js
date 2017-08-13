@@ -3,15 +3,15 @@ var losses = 0;
 var currentTotal = 0;
 
 
-document.onkey = function(event) {
+$(document).ready(function() {
  
-var number = Math.floor((Math.random()*120) + 19);
-var july = Math.floor((Math.random()*12) +1);
-var april = Math.floor((Math.random()*12)+1);
-var october = Math.floor((Math.random()*12)+1);
-var december = Math.flor((Math.random()*12)+1);
+var number = Math.floor((Math.random()*121) + 19);
+var july = Math.floor((Math.random()*13) +1);
+var april = Math.floor((Math.random()*13)+1);
+var october = Math.floor((Math.random()*13)+1);
+var december = Math.floor((Math.random()*13)+1);
 
-$ ("#numberDisplay").html(number);
+$ (".numberDisplay").html(number);
 
 $ (".julycrystal").on("click", function(){
 	update(july)
@@ -31,42 +31,45 @@ $ (".decembercrystal").on("click", function() {
 
 function reset () {
 	
-	var number = Math.floor((Math.random()*120) + 19);
+	var number = Math.floor((Math.random()*121) + 19);
 
-	$ ("#numberDisplay").html(number);
+	$ (".numberDisplay").html(number);
 
-	var july = Math.floor((Math.random()*12) +1);
-	var april = Math.floor((Math.random()*12)+1);
-	var october = Math.floor((Math.random()*12)+1);
- 	var december = Math.flor((Math.random()*12)+1);
+	var july = Math.floor((Math.random()*13) +1);
+	var april = Math.floor((Math.random()*13) +1);
+	var october = Math.floor((Math.random()*13) +1);
+ 	var december = Math.floor((Math.random()*13) +1);
 
  	currentTotal =0 ;
 
- 	$ ("#currentTotal").html(currentTotal);
-}
+ 	$ ("#currentDisplay").html(currentTotal);
+};
 
 function update(color) {
 
 	currentTotal += color;
 
-	currentTotal = 0;
-	
-	$ ("#currentDisplay").append(currentTotal);
+	$ (".currentDisplay").empty()
+	$ (".currentDisplay").append(currentTotal);
 
-	if (currentTotal > number)
+	if (currentTotal > number) {
 		losses++;
-		$("#lossesDisplay").html(losses);
+		$(".lossesDisplay").html(losses);
 
 	reset();
+};
 
-	if (currentTotal === number)
+	if (currentTotal === number) {
 		wins++;
-		$("#winsDisplay").html(losses);
-
+		$(".winsDisplay").html(losses);
+	
 	reset();
-}
 
-}
+};
+
+};
+
+});
 
 
 
