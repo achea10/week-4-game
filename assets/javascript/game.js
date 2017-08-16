@@ -1,3 +1,5 @@
+
+
 var wins = 0;
 var losses = 0;
 var currentTotal = 0;
@@ -29,6 +31,32 @@ $ (".decembercrystal").on("click", function() {
 	update(december)
 });
 
+
+function update(color) {
+
+	currentTotal += color;
+
+	$ (".currentDisplay").empty();
+	$ (".currentDisplay").append(currentTotal);
+
+
+	if (currentTotal > number) {
+		losses++;
+		$(".lossesDisplay").html(losses);
+		alert("Damn you loose!");
+
+	reset();
+};
+
+	if (currentTotal === number) {
+		wins++;
+		$(".winsDisplay").html(losses);
+		alert("Ay you won!");
+	
+	reset();
+
+};
+
 function reset () {
 	
 	var number = Math.floor((Math.random()*121) + 19);
@@ -40,31 +68,8 @@ function reset () {
 	var october = Math.floor((Math.random()*13) +1);
  	var december = Math.floor((Math.random()*13) +1);
 
- 	currentTotal =0 ;
-
+ 	currentTotal = 0;
  	$ ("#currentDisplay").html(currentTotal);
-};
-
-function update(color) {
-
-	currentTotal += color;
-
-	$ (".currentDisplay").empty()
-	$ (".currentDisplay").append(currentTotal);
-
-	if (currentTotal > number) {
-		losses++;
-		$(".lossesDisplay").html(losses);
-
-	reset();
-};
-
-	if (currentTotal === number) {
-		wins++;
-		$(".winsDisplay").html(losses);
-	
-	reset();
-
 };
 
 };
