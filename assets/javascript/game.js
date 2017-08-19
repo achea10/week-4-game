@@ -17,18 +17,22 @@ $ (".numberDisplay").html(number);
 
 $ (".julycrystal").on("click", function(){
 	update(july)
+	update(julybox)
 });
 
 $ (".aprilcrystal").on("click", function() {
 	update(april)
+	update(aprilbox)
 });
 
 $ (".octobercrystal").on("click", function() {
 	update(october)
+	update(octoberbox)
 });
 
 $ (".decembercrystal").on("click", function() {
 	update(december)
+	update(decemberbox)
 });
 
 
@@ -53,6 +57,13 @@ function update(color) {
 		$(".winsDisplay").html(losses);
 		alert("Ay you won!");
 	
+	reset();
+
+	$ (".julybox").html(july);
+	$ (".aprilbox").html(april);
+	$ (".octoberbox").html(october);
+	$ (".decemberbox").html(december);
+
 	reset();
 
 };
